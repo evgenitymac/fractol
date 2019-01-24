@@ -6,7 +6,7 @@
 /*   By: maheiden <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 17:38:42 by maheiden          #+#    #+#             */
-/*   Updated: 2019/01/23 22:01:16 by maheiden         ###   ########.fr       */
+/*   Updated: 2019/01/24 22:45:52 by maheiden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ t_complex	map_point(t_screen *screen, int x, int y)
 {
 	t_complex	a;
 
-	a.x = x - (WIDTH / 2);
-	a.y = y - (HEIGHT / 2);
+	a.x = 100 - (WIDTH / 2);
+	a.y = 100 - (HEIGHT / 2);
 	a.x /= screen->scale;
 	a.y /= screen->scale;
 //	a.x += center_x;

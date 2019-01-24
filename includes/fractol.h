@@ -6,7 +6,7 @@
 /*   By: maheiden <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 15:49:01 by maheiden          #+#    #+#             */
-/*   Updated: 2019/01/23 22:32:55 by maheiden         ###   ########.fr       */
+/*   Updated: 2019/01/24 21:46:39 by maheiden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # define WIDTH 2200
 # define HEIGHT 1300
-# define UNIQ_BPP 4
 
 # include "../libft/libft.h"
 # include "mlx.h"
@@ -40,6 +39,8 @@ typedef	struct	s_screen
 {
 	void				*mlx;
 	void				*win;
+	int					x;
+	int					y;
 	double 				scale;
 	t_complex			complex_num;
 	t_img				img;
@@ -54,11 +55,11 @@ void	clear_image(t_img *img);
 t_complex		complex_add(t_complex a, t_complex b);
 t_complex		complex_sqrt(t_complex a);
 double		complex_mod(t_complex	a);
-t_complex	map_point(t_screen *screen,int x, int y);
+t_complex	map_point(t_screen *screen, int x, int y);
 
 void	display_error(int cond, char *str);
 void	init(t_screen *screen);
 
-void	julia(double radius, int n, t_screen *screen);
+void	julia(int n, t_screen *screen);
 
 #endif

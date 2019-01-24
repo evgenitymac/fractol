@@ -6,13 +6,13 @@
 /*   By: maheiden <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:45:59 by maheiden          #+#    #+#             */
-/*   Updated: 2019/01/23 22:34:47 by maheiden         ###   ########.fr       */
+/*   Updated: 2019/01/24 22:45:58 by maheiden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	julia(double radius, int n, t_screen *screen)
+void	julia(int n, t_screen *screen)
 {
 	int		x;
 	int		y;
@@ -20,8 +20,6 @@ void	julia(double radius, int n, t_screen *screen)
 	x = 0;
 	t_complex	z0;
 	t_complex	z1;
-	
-	mlx_clear_window(screen->mlx, screen->win);
 	while (x <= WIDTH)
 	{
 		y = 0;
@@ -32,9 +30,8 @@ void	julia(double radius, int n, t_screen *screen)
 			while (i <= n)
 			{
 				z1 = complex_add(complex_sqrt(z0), screen->complex_num);
-				if (complex_mod(z1) > radius) 
+				if (complex_mod(z1) < 1) 
 				{
-					//mlx_pixel_put(screen->mlx, screen->win, x, y, i * 128 );
 					set_pixel(screen, x, y, i * 128);
 					break;
 				}
@@ -43,11 +40,11 @@ void	julia(double radius, int n, t_screen *screen)
 			}
 			if (i > n)
 			{
-				//mlx_pixel_put(screen->mlx, screen->win, x, y, 0);
 				set_pixel(screen, x, y, 0);
 			}
 			y++;
 		}
 		x++;
 	}
+	mlx_put_image_to_window(screen->mlx, screen->win, screen->img.image, 0, 0);
 }
