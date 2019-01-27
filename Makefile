@@ -21,8 +21,8 @@ MLX = -L./minilibx_macos -lmlx -framework OpenGL -framework AppKit
 GCCFLAGS = -Wall -Wextra -Werror
 SRCS = main.c \
 	   julia.c \
-	   complex.c \
 	   image.c \
+           mandelbrot.c \
 	   hook.c
 
 

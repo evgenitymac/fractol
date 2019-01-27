@@ -13,12 +13,18 @@
 
 #include "fractol.h"
 
-void	init(t_screen *screen)
+void	init(t_screen *screen, int flag)
 {
-	screen->mlx = mlx_init();
-	screen->win = mlx_new_window(screen->mlx, WIDTH, HEIGHT, "fractol");
-	screen->scale = 200;
-	init_image(screen);
+	if (flag != 1)
+	{
+		screen->mlx = mlx_init();
+		screen->win = mlx_new_window(screen->mlx, WIDTH, HEIGHT, "fractol");
+		init_image(screen);
+	}
+	screen->scale = 1;
+	screen->offset_x = 0;
+	screen->offset_y = 0;
+	screen->iteration = 10;
 }
 void	display_error(int cond, char *str)
 {
@@ -29,17 +35,25 @@ void	display_error(int cond, char *str)
 	}
 }
 
-
 int		main(int argc, char **argv)
 {
 	t_screen  *screen;
 
 	screen = (t_screen *)ft_memalloc(sizeof(t_screen));
-	init(screen);
+	init(screen, 0);
 	display_error(argc != 2, "arguments error");
-	if (ft_strcmp(argv[1], "julia") != 0)
-		return (1);
-	julia(10, screen);
+	if (ft_strcmp(argv[1], "julia") == 0)
+	{
+		screen->id = 0;
+		julia(screen);
+	}
+	else if (ft_strcmp(argv[1], "mandelbrot") == 0)
+	{
+		screen->id = 1;
+		mandelbrot(screen);
+	} else 
+		display_error(1, "fractal name error");
+
 	mlx_hook(screen->win, 2, 0, key_press, screen);
 	mlx_loop(screen->mlx);
 	return (0);

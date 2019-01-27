@@ -12,39 +12,32 @@
 
 #include "fractol.h"
 
-void	julia(int n, t_screen *screen)
+void	julia(t_screen *screen)
 {
-	int		x;
-	int		y;
-	int		i;
-	x = 0;
-	t_complex	z0;
-	t_complex	z1;
-	while (x <= WIDTH)
+	int row = 0;
+	int col = 0;
+	while (row < HEIGHT)
 	{
-		y = 0;
-		while (y <= HEIGHT)
+		col = 0;
+		while (col < WIDTH)
 		{
-			z0 = map_point(screen, x, y);
-			i = 1;
-			while (i <= n)
+			double zx = (col - WIDTH / 2.0) * 4.0 / WIDTH;
+			double zy = (row - HEIGHT / 2.0) * 4.0 / WIDTH;
+			zx /= screen->scale;
+			zy /= screen->scale;
+			int iteration = 0;
+			while (zx*zx + zy*zy <= 4 && iteration < screen->iteration)
 			{
-				z1 = complex_add(complex_sqrt(z0), screen->complex_num);
-				if (complex_mod(z1) < 1) 
-				{
-					set_pixel(screen, x, y, i * 128);
-					break;
-				}
-				z0 = z1;
-				i++;
+				double x_temp = zx*zx - zy*zy;
+				zy =2 * zx * zy + screen->offset_y;
+				zx = x_temp + screen->offset_x;
+				iteration++;
 			}
-			if (i > n)
-			{
-				set_pixel(screen, x, y, 0);
-			}
-			y++;
+			if (iteration < screen->iteration)
+				set_pixel(screen, col, row, iteration * 0x120);
+			col++;
 		}
-		x++;
+		row++;
 	}
 	mlx_put_image_to_window(screen->mlx, screen->win, screen->img.image, 0, 0);
 }
