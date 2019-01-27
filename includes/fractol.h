@@ -52,4 +52,6 @@ void	init(t_screen *screen, int flag);
 
 void	julia(t_screen *screen);
 void	mandelbrot(t_screen *screen);
+void	tricorn(t_screen *screen);
+void	burning_ship(t_screen *screen);
 #endif

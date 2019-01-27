@@ -22,6 +22,8 @@ GCCFLAGS = -Wall -Wextra -Werror
 SRCS = main.c \
 	   julia.c \
 	   image.c \
+	   tricorn.c \
+	   burningship.c \
            mandelbrot.c \
 	   hook.c
 

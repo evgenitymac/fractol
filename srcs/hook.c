@@ -38,5 +38,9 @@ int		key_press(int key, t_screen *screen)
 		julia(screen);
 	else if (screen->id == 1)
 		mandelbrot(screen);
+	else if (screen->id == 2)
+		tricorn(screen);
+	else if (screen->id == 3)
+		burning_ship(screen);
 	return (0);
 }

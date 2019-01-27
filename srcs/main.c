@@ -51,7 +51,18 @@ int		main(int argc, char **argv)
 	{
 		screen->id = 1;
 		mandelbrot(screen);
-	} else 
+	}
+	else if (ft_strcmp(argv[1], "tricorn") == 0)
+	{
+		screen->id = 2;
+		tricorn(screen);	
+	}
+	else if (ft_strcmp(argv[1], "burning-ship") == 0)
+	{
+		screen->id = 3;
+		burning_ship(screen);
+	} 
+	else 
 		display_error(1, "fractal name error");
 
 	mlx_hook(screen->win, 2, 0, key_press, screen);
