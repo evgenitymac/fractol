@@ -23,6 +23,7 @@ SRCS = main.c \
 	   julia.c \
 	   image.c \
 	   tricorn.c \
+	   sierpinski.c \
 	   burningship.c \
            mandelbrot.c \
 	   hook.c

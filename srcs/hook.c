@@ -42,5 +42,7 @@ int		key_press(int key, t_screen *screen)
 		tricorn(screen);
 	else if (screen->id == 3)
 		burning_ship(screen);
+	else if (screen->id == 4)
+		sierpinski(screen);
 	return (0);
 }

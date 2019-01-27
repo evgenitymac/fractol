@@ -54,4 +54,6 @@ void	julia(t_screen *screen);
 void	mandelbrot(t_screen *screen);
 void	tricorn(t_screen *screen);
 void	burning_ship(t_screen *screen);
+void	sierpinski(t_screen *screen);
+
 #endif

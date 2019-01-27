@@ -41,6 +41,7 @@ int		main(int argc, char **argv)
 
 	screen = (t_screen *)ft_memalloc(sizeof(t_screen));
 	init(screen, 0);
+	//empty dir handle
 	display_error(argc != 2, "arguments error");
 	if (ft_strcmp(argv[1], "julia") == 0)
 	{
@@ -61,6 +62,11 @@ int		main(int argc, char **argv)
 	{
 		screen->id = 3;
 		burning_ship(screen);
+	}
+	else if (ft_strcmp(argv[1], "sierpinski") == 0)
+	{
+		screen->id = 4;
+		sierpinski(screen);
 	} 
 	else 
 		display_error(1, "fractal name error");
