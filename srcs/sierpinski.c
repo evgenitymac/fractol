@@ -2,6 +2,7 @@
 
 void	sierpinski(t_screen *screen)
 {
+	//scale trouble when use "-" twice
 	int i = 0;
 	int j = 0;
 	int d;
