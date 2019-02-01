@@ -10,16 +10,16 @@ void	mandelbrot(t_screen *screen)
 		col = 0;
 		while (col < WIDTH)
 		{
-			double c_re = (col - WIDTH / 2.0) * 4.0 / WIDTH;
-			double c_im = (row - HEIGHT / 2.0) * 4.0 / WIDTH;
-			c_re /= screen->scale;
-			c_im /= screen->scale;
+			double zx = (col - WIDTH / 2.0) * 4.0 / WIDTH;
+			double zy = (row - HEIGHT / 2.0) * 4.0 / WIDTH;
+			zx /= screen->scale;
+			zy /= screen->scale;
 			double x = 0, y = 0;
 			int iteration = 0;
 			while (x*x+y*y <= 4 && iteration < screen->iteration)
 			{
-				double x_new = x*x - y*y + c_re;
-				y = 2*x*y + c_im + screen->offset_y;
+				double x_new = x*x - y*y + zx;
+				y = 2*x*y + zy + screen->offset_y;
 				x = x_new + screen->offset_x;
 				iteration++;
 			}

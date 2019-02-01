@@ -9,8 +9,8 @@ void	tricorn(t_screen *screen)
 		col = 0;
 		while (col < WIDTH)
 		{
-			double zx = (col - WIDTH / 2.0) * 4.0 / WIDTH;
-			double zy = (row - HEIGHT / 2.0) * 4.0 / WIDTH;
+			double zx = (col - WIDTH / 2.0) * 4.0 / WIDTH + screen->offset_x;
+			double zy = (row - HEIGHT / 2.0) * 4.0 / WIDTH + screen->offset_y;
 			zx /= screen->scale;
 			zy /= screen->scale;
 			int iteration = 0;

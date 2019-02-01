@@ -6,7 +6,7 @@
 /*   By: maheiden <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:45:59 by maheiden          #+#    #+#             */
-/*   Updated: 2019/01/24 22:45:58 by maheiden         ###   ########.fr       */
+/*   Updated: 2019/02/01 19:01:02 by maheiden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,16 @@ void	julia(t_screen *screen)
 		col = 0;
 		while (col < WIDTH)
 		{
-			double zx = (col - WIDTH / 2.0) * 4.0 / WIDTH;
-			double zy = (row - HEIGHT / 2.0) * 4.0 / WIDTH;
-			zx /= screen->scale;
-			zy /= screen->scale;
+			double zx = (col - WIDTH / 2.0) * 4.0 / WIDTH + screen->offset_x;
+			double zy = (row - HEIGHT / 2.0) * 4.0 / WIDTH + screen->offset_y;
+			zx /= screen->scale;//+ screen->offset_x;
+			zy /= screen->scale; //+ screen->offset_y;
 			int iteration = 0;
 			while (zx*zx + zy*zy <= 4 && iteration < screen->iteration)
 			{
 				double x_temp = zx*zx - zy*zy;
-				zy =2 * zx * zy + screen->offset_y;
-				zx = x_temp + screen->offset_x;
+				zx = 2 * zx * zy; // + screen->offset_y;
+				zy = x_temp; //+ screen->offset_x;
 				iteration++;
 			}
 			if (iteration < screen->iteration)
