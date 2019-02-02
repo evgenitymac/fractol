@@ -6,7 +6,7 @@
 /*   By: maheiden <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 15:49:01 by maheiden          #+#    #+#             */
-/*   Updated: 2019/01/24 21:46:39 by maheiden         ###   ########.fr       */
+/*   Updated: 2019/02/02 17:41:53 by maheiden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,14 @@ typedef	struct	s_screen
 	int				iteration;
 	double				offset_x;
 	double				offset_y;
+	int					x;
+	int					y;
 	double 				scale;
 	t_img				img;
 }				t_screen;
 
 int		key_press(int key, t_screen *screen);
-
+int		mouse_move(int button, int x, int y, t_screen *screen);
 void	init_image(t_screen *screen);
 void	set_pixel(t_screen *screen, int x, int y, int color);
 void	clear_image(t_img *img);

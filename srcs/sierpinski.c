@@ -7,10 +7,10 @@ void	sierpinski(t_screen *screen)
 	int j = 0;
 	int d;
 	double dim;
-	dim = 1 / screen->scale;
-	while (i < screen->iteration && dim <= HEIGHT && dim <= WIDTH)
+	dim = fabs(1 * screen->scale);
+	while (i < screen->iteration && dim <= HEIGHT) // && dim <= WIDTH)
 	{
-		dim *= 3.0;
+		dim *= 3;
 		i++;
 	}
 	i = 0;
@@ -19,12 +19,12 @@ void	sierpinski(t_screen *screen)
 		j = 0;
 		while (j < WIDTH && j <= dim)
 		{
-			d = dim / 3.0;
+			d = round(dim) / 3;
 			while (d)
 			{
 				if ((i % (d * 3) / d == 1) && (j % ((d * 3)) /d == 1))
 					set_pixel(screen, i, j, d * 0x120);
-				d /= 3.0;
+				d /= 3;
 			}
 			j++;
 		}

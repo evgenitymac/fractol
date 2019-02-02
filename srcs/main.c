@@ -6,7 +6,7 @@
 /*   By: maheiden <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 17:24:15 by maheiden          #+#    #+#             */
-/*   Updated: 2019/02/01 21:11:49 by maheiden         ###   ########.fr       */
+/*   Updated: 2019/02/02 21:14:46 by maheiden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ int		main(int argc, char **argv)
 		display_error(1, "fractal name error");
 
 	mlx_hook(screen->win, 2, 0, key_press, screen);
+	mlx_mouse_hook(screen->win, mouse_move, screen);
 	mlx_loop(screen->mlx);
 	return (0);
 }

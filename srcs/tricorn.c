@@ -24,7 +24,7 @@ void	tricorn(t_screen *screen)
 				iteration += 1;
 			}
 			if (iteration == screen->iteration)
-				set_pixel(screen, col, row, iteration * 0xFFFFFF);
+				set_pixel(screen, col, row, iteration * 0x120);
 			col++;
 		}
 		row++;
