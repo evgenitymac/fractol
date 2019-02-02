@@ -6,7 +6,7 @@
 /*   By: maheiden <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 17:24:15 by maheiden          #+#    #+#             */
-/*   Updated: 2019/02/02 21:14:46 by maheiden         ###   ########.fr       */
+/*   Updated: 2019/02/02 23:45:48 by maheiden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int		main(int argc, char **argv)
 	screen = (t_screen *)ft_memalloc(sizeof(t_screen));
 	init(screen, 0);
 	//empty dir handle
+	//need to show all posible fractals if doesn't exist or if invalid param sent
 	display_error(argc != 2, "arguments error");
 	if (ft_strcmp(argv[1], "julia") == 0)
 	{
@@ -68,9 +69,20 @@ int		main(int argc, char **argv)
 		screen->id = 4;
 		sierpinski(screen);
 	} 
-	else 
+	else if (ft_strcmp(argv[1], "barnsley") == 0)
+	{
+		screen->id = 5;
+		barnsley(screen);
+	}
+	else if (ft_strcmp(argv[1], "sun") == 0)
+	{
+		screen->id = 6;
+		sunflower(screen);
+	}
+	else
+	{	
 		display_error(1, "fractal name error");
-
+	}
 	mlx_hook(screen->win, 2, 0, key_press, screen);
 	mlx_mouse_hook(screen->win, mouse_move, screen);
 	mlx_loop(screen->mlx);

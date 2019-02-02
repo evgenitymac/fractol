@@ -9,10 +9,12 @@ void	burning_ship(t_screen *screen)
 		col = 0;
 		while (col < WIDTH)
 		{
-			double zx = (col - WIDTH / 2.0) * 4.0 / WIDTH + screen->offset_x;
-			double zy = (row - HEIGHT / 2.0) * 4.0 / WIDTH + screen->offset_y;
+			double zx = (col - WIDTH / 2.0) * 4.0 / WIDTH;
+			double zy = (row - HEIGHT / 2.0) * 4.0 / WIDTH;
 			zx /= screen->scale;
 			zy /= screen->scale;
+			zx += screen->offset_x;
+			zy += screen->offset_y;
 			double x = zx, y = zy;
 			int iteration = 0;
 			while (zx * zx - zy * zy <= 4 && iteration < screen->iteration)

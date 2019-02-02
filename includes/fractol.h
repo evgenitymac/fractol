@@ -6,7 +6,7 @@
 /*   By: maheiden <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 15:49:01 by maheiden          #+#    #+#             */
-/*   Updated: 2019/02/02 17:41:53 by maheiden         ###   ########.fr       */
+/*   Updated: 2019/02/02 23:15:13 by maheiden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ typedef	struct	s_screen
 	int				iteration;
 	double				offset_x;
 	double				offset_y;
-	int					x;
-	int					y;
 	double 				scale;
 	t_img				img;
 }				t_screen;
@@ -57,5 +55,6 @@ void	mandelbrot(t_screen *screen);
 void	tricorn(t_screen *screen);
 void	burning_ship(t_screen *screen);
 void	sierpinski(t_screen *screen);
-
+void	barnsley(t_screen *screen);
+void	sunflower(t_screen *screen);
 #endif

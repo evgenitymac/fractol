@@ -13,10 +13,10 @@ void	sierpinski(t_screen *screen)
 		dim *= 3;
 		i++;
 	}
-	i = 0;
+	i = screen->offset_x;
 	while (i < HEIGHT && i <= dim)
 	{
-		j = 0;
+		j = screen->offset_y;;
 		while (j < WIDTH && j <= dim)
 		{
 			d = round(dim) / 3;

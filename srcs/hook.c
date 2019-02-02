@@ -6,7 +6,7 @@
 /*   By: maheiden <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 21:25:38 by maheiden          #+#    #+#             */
-/*   Updated: 2019/02/02 21:14:45 by maheiden         ###   ########.fr       */
+/*   Updated: 2019/02/02 23:16:09 by maheiden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,10 @@ int		key_press(int key, t_screen *screen)
 		burning_ship(screen);
 	else if (screen->id == 4)
 		sierpinski(screen);
+	else if (screen->id == 5)
+		barnsley(screen);
+	else if (screen->id == 6)
+		sunflower(screen);
 	return (0);
 }
 
@@ -63,5 +67,9 @@ int		mouse_move(int button, int x, int y, t_screen *screen)
 		burning_ship(screen);
 	else if (screen->id == 4)
 		sierpinski(screen);
+	else if (screen->id == 5)
+		barnsley(screen);
+	else if (screen->id == 6)
+		sunflower(screen);
 	return (0);
 }

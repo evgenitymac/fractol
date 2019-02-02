@@ -6,7 +6,7 @@
 #    By: maheiden <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/23 17:07:27 by maheiden          #+#    #+#              #
-#    Updated: 2019/01/23 22:32:26 by maheiden         ###   ########.fr        #
+#    Updated: 2019/02/02 23:13:11 by maheiden         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,9 @@ SRCS = main.c \
 	   tricorn.c \
 	   sierpinski.c \
 	   burningship.c \
-           mandelbrot.c \
+       mandelbrot.c \
+	   barnsley.c \
+	   sunflower.c \
 	   hook.c
 
 
