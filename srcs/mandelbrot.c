@@ -1,17 +1,17 @@
-
 #include "fractol.h"
 
-void	mandelbrot(t_screen *screen)
+static void	*render(void *tab)
 {
-	int row = 0;
-	int col = 0;
-	while (row < HEIGHT)
+	t_screen *screen;
+
+	screen = (t_screen *)tab;
+	while (screen->row < screen->row_max)
 	{
-		col = 0;
+		int col = 0;
 		while (col < WIDTH)
 		{
 			double zx = (col - WIDTH / 2.0) * 4.0 / WIDTH;
-			double zy = (row - HEIGHT / 2.0) * 4.0 / WIDTH;
+			double zy = (screen->row - HEIGHT / 2.0) * 4.0 / WIDTH;
 			zx /= screen->scale;
 			zy /= screen->scale;
 			zx -= screen->offset_x;
@@ -26,10 +26,30 @@ void	mandelbrot(t_screen *screen)
 				iteration++;
 			}
 			if (iteration < screen->iteration)
-				set_pixel(screen, col, row, iteration * 0x120);
+				set_pixel(screen, col, screen->row, iteration * 0x120);
 			col++;
 		}
-		row++;
+		screen->row++;
 	}
+	return (tab);
+}
+
+void	mandelbrot(t_screen *screen)
+{
+	pthread_t thread[8];
+	t_screen tab[8];
+
+	int i = -1;
+	while (++i < 8)
+	{
+		ft_memcpy((void*)&tab[i], (void *)screen, sizeof(t_screen));
+		screen->row = HEIGHT/ 8 * i;
+		screen->row_max = HEIGHT / 8 * (i + 1);
+		pthread_create(&thread[i], NULL, render, &tab[i]);
+	}
+	while (i--)
+		pthread_join(thread[i], NULL);
+	
 	mlx_put_image_to_window(screen->mlx, screen->win, screen->img.image, 0, 0);
 }
+

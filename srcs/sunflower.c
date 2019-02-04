@@ -6,7 +6,7 @@
 /*   By: maheiden <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/02 23:14:22 by maheiden          #+#    #+#             */
-/*   Updated: 2019/02/04 12:13:44 by maheiden         ###   ########.fr       */
+/*   Updated: 2019/02/04 18:19:34 by maheiden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ static void		circle_bres(t_screen *screen, int xc, int yc, int r)
 }
 void	sunflower(t_screen *screen)
 {
+
 	int c = (sqrt(5) + 1)/ 2;
 	int i = 0;
 	int max = screen->iteration;
@@ -52,7 +53,7 @@ void	sunflower(t_screen *screen)
 	double angle = 0;
 	while (i < max)
 	{
-		r = pow(i, c) / max * screen->scale;
+		r = pow(i, c) / max * (screen->scale + 187);	
 		angle = 2 * M_PI * c * i;
 		x = r * sin(angle) + WIDTH / 2;
 		y = r * cos(angle) + HEIGHT / 2;

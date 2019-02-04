@@ -6,14 +6,15 @@
 /*   By: maheiden <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 21:25:38 by maheiden          #+#    #+#             */
-/*   Updated: 2019/02/04 16:50:28 by maheiden         ###   ########.fr       */
+/*   Updated: 2019/02/04 21:43:51 by maheiden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	show_fractal(t_screen *screen)
+static	void	show_fractal(t_screen *screen)
 {
+	clear_image(&screen->img);
 	if (screen->id == 0)
 		julia(screen);
 	else if (screen->id == 1)
@@ -30,21 +31,25 @@ void	show_fractal(t_screen *screen)
 		sunflower(screen);
 }
 
+int		close_this(void *param)
+{
+	(void)param;
+	exit(0);
+	return (0);
+}
 
 int		key_press(int key, t_screen *screen)
 {
 	key == 53 ? exit(0) : 0;
-	key == 13 ? screen->offset_y += 0.04 / screen->scale : 0;
-	key == 2 ? screen->offset_x += 0.04 / screen->scale : 0;
-	key == 1 ? screen->offset_y -= 0.04 / screen->scale : 0;
-	key == 0 ? screen->offset_x -= 0.04 / screen->scale : 0;
-	// red button click need exit too
+	key == 126 ? screen->offset_y += 0.04 / screen->scale : 0;
+	key == 124 ? screen->offset_x += 0.04 / screen->scale : 0;
+	key == 125 ? screen->offset_y -= 0.04 / screen->scale : 0;
+	key == 123 ? screen->offset_x -= 0.04 / screen->scale : 0;
 	key == 15 ? init(screen, 1) : 0;
 	key == 24 ? screen->scale += 0.4 : 0;
 	key == 27 ? screen->scale -= 0.4 : 0;
 	key == 34 ? screen->iteration += 1 : 0;
 	key == 49 ? screen->is_fixed += 1 : 0;
-	clear_image(&screen->img);
 	show_fractal(screen);
 	return (0);
 }
@@ -57,7 +62,6 @@ int		mouse_move(int x, int y, t_screen *screen)
 		{
 			screen->mouse_x = x;
 			screen->mouse_y = y;
-			clear_image(&screen->img);
 			show_fractal(screen);
 		}
 	}
@@ -65,7 +69,6 @@ int		mouse_move(int x, int y, t_screen *screen)
 }
 int		mouse_press(int button, int x, int y, t_screen *screen)
 {
-	clear_image(&screen->img);
 	if (screen->is_fixed % 2 == 0)
 	{	
 		if (button == 4)

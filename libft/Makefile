@@ -6,7 +6,7 @@
 #    By: maheiden <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/23 15:44:29 by maheiden          #+#    #+#              #
-#    Updated: 2018/12/21 14:03:22 by maheiden         ###   ########.fr        #
+#    Updated: 2019/02/04 21:51:11 by maheiden         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,6 +81,7 @@ SRC = ft_bzero.c \
 	   ft_sqrt.c \
 	   get_next_line.c \
 	   ft_realloc.c \
+	   ft_tolower_str.c \
 
 OBJ = $(SRC:.c=.o)
 

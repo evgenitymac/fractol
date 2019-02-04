@@ -2,7 +2,6 @@
 
 void	sierpinski(t_screen *screen)
 {
-	//scale trouble when use "-" twice
 	int i = 0;
 	int j = 0;
 	int d;
@@ -13,10 +12,10 @@ void	sierpinski(t_screen *screen)
 		dim *= 3;
 		i++;
 	}
-	i = screen->offset_x;
+	i = 0;
 	while (i < HEIGHT && i <= dim)
 	{
-		j = screen->offset_y;;
+		j = 0;
 		while (j < WIDTH && j <= dim)
 		{
 			d = round(dim) / 3;
