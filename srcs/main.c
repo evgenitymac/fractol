@@ -6,7 +6,7 @@
 /*   By: maheiden <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 17:24:15 by maheiden          #+#    #+#             */
-/*   Updated: 2019/02/04 14:56:14 by maheiden         ###   ########.fr       */
+/*   Updated: 2019/02/04 16:18:00 by maheiden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	init(t_screen *screen, int flag)
 	screen->scale = 1;
 	screen->offset_x = 0;
 	screen->offset_y = 0;
+	screen->mouse_x = 0;
+	screen->mouse_y = 0;
 	screen->iteration = 10;
 }
 
@@ -92,7 +94,8 @@ int		main(int argc, char **argv)
 		exit(0);
 	}
 	mlx_hook(screen->win, 2, 0, key_press, screen);
-	mlx_mouse_hook(screen->win, mouse_move, screen);
+	mlx_hook(screen->win, 6, 0, mouse_move, screen);
+	mlx_mouse_hook(screen->win, mouse_press, screen);
 	mlx_loop(screen->mlx);
 	return (0);
 }
