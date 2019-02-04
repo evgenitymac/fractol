@@ -26,7 +26,7 @@ static void	*render(void *tab)
 				iteration++;
 			}
 			if (iteration < screen->iteration)
-				set_pixel(screen, col, screen->row, iteration * 0x120);
+				set_pixel(screen, col, screen->row, set_color(screen, iteration));
 			col++;
 		}
 		screen->row++;
@@ -38,7 +38,8 @@ void	mandelbrot(t_screen *screen)
 {
 	pthread_t thread[8];
 	t_screen tab[8];
-
+	
+	clear_image(&screen->img);
 	int i = -1;
 	while (++i < 8)
 	{

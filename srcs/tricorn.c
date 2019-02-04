@@ -28,7 +28,7 @@ static void	*render(void *tab)
 				iteration += 1;
 			}
 			if (iteration != screen->iteration)
-				set_pixel(screen, col, screen->row, iteration * 0x120);
+				set_pixel(screen, col, screen->row, set_color(screen, iteration));
 			col++;
 		}
 		screen->row++;

@@ -6,7 +6,7 @@
 /*   By: maheiden <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 15:49:01 by maheiden          #+#    #+#             */
-/*   Updated: 2019/02/04 21:07:18 by maheiden         ###   ########.fr       */
+/*   Updated: 2019/02/04 23:43:42 by maheiden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int		close_this(void *param);
 void	init_image(t_screen *screen);
 void	set_pixel(t_screen *screen, int x, int y, int color);
 void	clear_image(t_img *img);
+int		set_color(t_screen *screen, int iteration);
 
 void	display_error(int cond, char *str);
 void	init(t_screen *screen, int flag);

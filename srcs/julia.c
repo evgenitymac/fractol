@@ -6,7 +6,7 @@
 /*   By: maheiden <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:45:59 by maheiden          #+#    #+#             */
-/*   Updated: 2019/02/04 21:39:29 by maheiden         ###   ########.fr       */
+/*   Updated: 2019/02/05 00:04:31 by maheiden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static	void	*render(void *tab)
 				iteration++;
 			}
 			if (iteration < screen->iteration)
-				set_pixel(screen, col, screen->row, iteration * 0x120);
+				set_pixel(screen, col, screen->row, set_color(screen, iteration));
 			col++;
 		}
 		screen->row++;
