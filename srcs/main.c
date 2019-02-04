@@ -6,7 +6,7 @@
 /*   By: maheiden <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 17:24:15 by maheiden          #+#    #+#             */
-/*   Updated: 2019/02/02 23:45:48 by maheiden         ###   ########.fr       */
+/*   Updated: 2019/02/04 14:56:14 by maheiden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	init(t_screen *screen, int flag)
 	screen->offset_y = 0;
 	screen->iteration = 10;
 }
+
 void	display_error(int cond, char *str)
 {
 	if (cond)
@@ -35,14 +36,20 @@ void	display_error(int cond, char *str)
 	}
 }
 
+static	void	display_fractals_name()
+{
+	ft_putstr("usage : fractol [flactals]\n  fractals : \n"
+			" --> mandelbrot\n --> julia\n --> mandelbrot\n"
+			" --> tricorn\n --> sierpinski\n --> barnsley\n"
+			 " --> sun\n");
+}
+
 int		main(int argc, char **argv)
 {
 	t_screen  *screen;
 
 	screen = (t_screen *)ft_memalloc(sizeof(t_screen));
 	init(screen, 0);
-	//empty dir handle
-	//need to show all posible fractals if doesn't exist or if invalid param sent
 	display_error(argc != 2, "arguments error");
 	if (ft_strcmp(argv[1], "julia") == 0)
 	{
@@ -80,8 +87,9 @@ int		main(int argc, char **argv)
 		sunflower(screen);
 	}
 	else
-	{	
-		display_error(1, "fractal name error");
+	{
+		display_fractals_name();
+		exit(0);
 	}
 	mlx_hook(screen->win, 2, 0, key_press, screen);
 	mlx_mouse_hook(screen->win, mouse_move, screen);

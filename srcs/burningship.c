@@ -13,7 +13,7 @@ void	burning_ship(t_screen *screen)
 			double zy = (row - HEIGHT / 2.0) * 4.0 / WIDTH;
 			zx /= screen->scale;
 			zy /= screen->scale;
-			zx += screen->offset_x;
+			zx -= screen->offset_x;
 			zy += screen->offset_y;
 			double x = zx, y = zy;
 			int iteration = 0;
