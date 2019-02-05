@@ -6,7 +6,7 @@
 #    By: maheiden <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/23 17:07:27 by maheiden          #+#    #+#              #
-#    Updated: 2019/02/02 23:13:11 by maheiden         ###   ########.fr        #
+#    Updated: 2019/02/05 21:26:37 by maheiden         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ SRCS = main.c \
        mandelbrot.c \
 	   barnsley.c \
 	   sunflower.c \
-	   hook.c
+	   hook.c \
+	   aditional.c \
 
 
 OBJS = $(addprefix $(OBJ_D)/,$(SRCS:.c=.o))
